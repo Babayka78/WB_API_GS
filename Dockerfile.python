@@ -1,0 +1,20 @@
+FROM python:3.12-slim-bookworm
+
+ENV TZ=Asia/Tbilisi
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+WORKDIR /usr/src/app
+
+#Отладчик
+#RUN pip install ptvsd
+RUN apt-get update && apt-get install -y docker-compose
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY .env ${WORKDIR}
+
+# EXPOSE - это директива Dockerfile, которая используется для указания порта, на котором контейнер будет слушать входящие соединения.
+# В данном случае контейнер будет слушать порт 8960.
+#EXPOSE 8960
+CMD ["python", "app.py"]
+#Отладчик
+#CMD ["python", "app.py", "--host", "0.0.0.0", "--port", "5678"]
