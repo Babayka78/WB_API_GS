@@ -1,0 +1,5 @@
+/.env
+/compose.debug.yml
+/tmp.txt
+/secrets/
+/app/secrets/
