@@ -1,8 +1,11 @@
 requests==2.32.3
-python-dotenv
-pymongo
+python-dotenv~=1.0.1
+pymongo~=4.10.1
 google-auth
-google-auth-oauthlib
-google-api-python-client
+google-auth-oauthlib~=1.2.1
+google-api-python-client~=2.149.0
 debugpy
-python-dateutil
+python-dateutil~=2.9.0.post0
+schedule~=1.2.2
+protobuf~=5.28.3
+pytz
